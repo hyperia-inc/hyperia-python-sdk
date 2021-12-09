@@ -1,0 +1,57 @@
+#!/usr/bin/env python
+
+#	Copyright 2021 Hyperia
+#
+#   Licensed under the Apache License, Version 2.0 (the "License");
+#   you may not use this file except in compliance with the License.
+#   You may obtain a copy of the License at
+#
+#       http://www.apache.org/licenses/LICENSE-2.0
+#
+#   Unless required by applicable law or agreed to in writing, software
+#   distributed under the License is distributed on an "AS IS" BASIS,
+#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#   See the License for the specific language governing permissions and
+#   limitations under the License.
+
+
+from __future__ import print_function
+from hyperia import Hyperia
+import json
+import sys
+
+
+if len(sys.argv) < 3:
+    print("Error! Usage: workspace_doc_metadata_concepts.py WORKSPACE_ID DOC_ID")
+    exit(-1)
+
+
+workspace_id = sys.argv[1]
+doc_id = sys.argv[2]
+
+
+# Create the Hyperia Object
+hyperia = Hyperia()
+
+
+print('')
+print('')
+print('##3############################################')
+print('#   Workspace Doc Metadata Concepts Example   #')
+print('###############################################')
+print('')
+print('')
+
+print(f'Processing metadata/concepts in workspace {workspace_id} doc {doc_id}')
+print('')
+
+
+response = hyperia.workspace_doc_metadata_concepts(workspace_id, doc_id)
+
+print('## Response Object ##')
+print(json.dumps(response, indent=4))
+
+print('')
+print('')
+print('')
+
