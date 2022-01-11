@@ -73,7 +73,30 @@ You may use the following code sample to have our programmable AI Notetaker join
 
 	python meeting_join.py <MEETING_LINK> <MEETING_PASSWORD>
 
+## Listing Workspaces
 
+Hyperia organizes calls and related metadata in *Workspaces*. Thus, many of the API calls require a *Workspace ID*.
+You may use the following code sample to retrieve a list of `workspace_id` for your application.
+
+    python workspace_list.py
+
+The output, if successful, is a JSON object of this form:
+
+    {
+        "status": "ok",
+        "results": [
+            {
+                "workspace_id": "WORKSPACE_ID",
+                "workspace_name": "WORKSPACE_NAME",
+                "workspace_description": "WORKSPACE_DESCRIPTION",
+                "num_docs": INT_NUM_DOCS,
+                "creation_datetime": "DATE_TIME_ISO_FORMAT"
+            },
+            ...
+        ]
+    }
+
+See also Hyperia REST API documentation for more details. 
 
 ## Ingesting a media file for transcription, computer vision, NLP analysis, and indexing into a searchable Hyperia workspace:
 

@@ -49,13 +49,17 @@ response = hyperia.workspace_delete(workspace_guid)
 
 print('## Response Object ##')
 print(json.dumps(response, indent=4))
+assert response['status'] == "ok"
 
 print('')
 print('')
 print('')
 
-workspace_id = response['workspace_id']
-
+# wait a few seconds to ensure deletion propagates
 time.sleep(3)
 
-response = hyperia.workspace_delete(workspace_id)
+# try to delete it again: this also succeeds
+response = hyperia.workspace_delete(workspace_guid)
+print('## Response Object ##')
+print(json.dumps(response, indent=4))
+assert response['status'] == "ok"
